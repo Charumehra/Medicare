@@ -2,10 +2,10 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav className="border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
+    <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+        <a href="#" className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white px-3 py-2 shadow-sm transition hover:border-emerald-200 hover:shadow-md">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-sky-500 text-white shadow-lg shadow-emerald-500/20">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -25,18 +25,21 @@ const Navbar = () => {
               />
             </svg>
           </span>
-          <span className="text-lg font-bold tracking-tight text-slate-800 sm:text-xl">
-            MediCare
-          </span>
+          <div className="leading-tight">
+            <span className="block text-base font-black tracking-tight text-slate-900 sm:text-lg">
+              MediCare
+            </span>
+            <span className="hidden text-xs text-slate-500 sm:block">Care made simple</span>
+          </div>
         </a>
 
         <div className="ml-auto flex items-center gap-3 sm:gap-4">
-          <div className="w-44 sm:w-64 md:w-80">
+          <div className="w-48 sm:w-64 md:w-80">
             <label htmlFor="hospital-search" className="sr-only">
               Search
             </label>
-            <div className="relative">
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+            <div className="group relative">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 transition group-focus-within:text-emerald-500">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -63,7 +66,7 @@ const Navbar = () => {
                 id="hospital-search"
                 type="text"
                 placeholder="Search hospitals, doctors, services..."
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-100"
+                className="w-full rounded-full border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-100"
               />
             </div>
           </div>
@@ -71,7 +74,7 @@ const Navbar = () => {
           <button
             type="button"
             aria-label="User profile"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-emerald-300 hover:text-emerald-700"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-emerald-200 hover:text-emerald-700 hover:shadow-md"
           >
             <svg
               viewBox="0 0 24 24"
