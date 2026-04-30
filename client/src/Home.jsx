@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
 
@@ -151,9 +152,11 @@ const Home = () => {
           {!loading && !error && hospitals.length > 0 && (
             <section className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
               {hospitals.map((hospital) => (
-                <article
+                <Link
                   key={hospital.placeId || hospital.name}
-                  className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
+                  to={`/hospital/${hospital.placeId || encodeURIComponent(hospital.name)}`}
+                  state={{ hospital }}
+                  className="group block relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
                 >
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-sky-500 to-cyan-400" />
                   <div className="p-5 sm:p-6">
@@ -224,7 +227,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                </article>
+                </Link>
               ))}
             </section>
           )}
