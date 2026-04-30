@@ -37,6 +37,15 @@ const HospitalDetail = () => {
 
   return (
     <main className="max-w-4xl mx-auto p-6">
+      <div className="flex justify-end">
+        <Link
+          to={`/hospital/${id}/book`}
+          state={{ hospital }}
+          className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+        >
+          Book Appointment
+        </Link>
+      </div>
       <Link to="/" className="inline-block mb-4 text-sm text-slate-600">← Back to list</Link>
       <header className="mb-6 rounded-2xl border border-slate-200 bg-white p-6">
         <h1 className="text-3xl font-black text-slate-900">{hospital.name}</h1>
